@@ -1,2 +1,1 @@
-# Memory-Card-Game
-Memory Card Game built with React 
+# Memory Card Game
