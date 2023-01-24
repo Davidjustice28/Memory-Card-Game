@@ -172,9 +172,6 @@ header {
         align-items: center;
     }
 
-    #try-again {
-        margin-left: 60%;
-    }
 }
 
 @media (min-width:601px) {
