@@ -29,9 +29,8 @@ function App() {
         setBestScore(score)
         shuffleCards()
       }
-      alert(`Oops. You already picked the ${value.toUpperCase()} card.`)
-      setScore(0)
-      setChoices([])
+      // alert(`Oops. You already picked the ${value.toUpperCase()} card.`)
+      document.getElementById("pop-up").style.display = "flex"
       return
     }else {
       let list = choices
@@ -41,6 +40,12 @@ function App() {
       shuffleCards()
     }
   }
+
+  const playAgain = () => {
+    document.getElementById("pop-up").style.display = "none"
+    setScore(0)
+    setChoices([])
+}
 
   const resetGame = () => {
     setScore(0)
@@ -56,12 +61,13 @@ function App() {
   return (
     <div className="App">
       <header>
-        <span id="app-title"><span class="material-symbols-outlined">sports_score</span>Sports Car Memory Game</span>
+        <span id="app-title"><span class="material-symbols-outlined">sports_score</span><span id="title-text">Sports Car Memory Game</span></span>
         <div className="scores-div">
           <p>Score: {score}</p>
           <p>Best Score: {bestScore}</p>
         </div>
       </header>
+      <p id="i">Pick as many cards as possible without selecting any previous choices.</p>
       <section id="cards-section">
         {CARDS.map((c) => {
           return (
@@ -70,6 +76,11 @@ function App() {
         })}
       </section>
       <button id="reset-button" onClick={resetGame}>Reset Game</button>
+      <div id="pop-up">
+        <h1>Game Over</h1>
+        <p>Score: {score}</p>
+        <button id="try-again" onClick={playAgain}>Try Again</button>
+      </div>
     </div >
   );
 }
